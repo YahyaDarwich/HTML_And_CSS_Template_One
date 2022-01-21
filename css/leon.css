@@ -163,7 +163,7 @@ body {
 
 /* Start Landing design */
 .landing {
-  background-image: url(../images/mountain.jpg);
+  background-image: url(../images/mountain.JPG);
   background-size: cover;
   /* image cover the full page but i need minus the size of header, for not showing scroll */
   height: calc(100vh - 64px);
@@ -187,7 +187,8 @@ body {
   right: 0;
 }
 @media (max-width: 767px) {
-  .landing::before , .landing::after{
+  .landing::before,
+  .landing::after {
     display: none;
   }
 }
