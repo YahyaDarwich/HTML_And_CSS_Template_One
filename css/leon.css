@@ -80,6 +80,10 @@ body {
 .header {
   padding: 20px;
   height: 64px;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: white;
 }
 .header .container {
   display: flex;
@@ -111,7 +115,7 @@ body {
 }
 .header .links .icon span:nth-child(2) {
   width: 60%;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 .header .links .icon span:last-child {
   width: 100%;
@@ -126,7 +130,7 @@ body {
   list-style: none;
   top: calc(100% + 15px);
   display: none;
-  border-radius: 15px;
+  border-radius: 15px 0px 15px 15px;
   /* to show list up landing picture */
   z-index: 1;
 }
@@ -164,6 +168,28 @@ body {
   /* image cover the full page but i need minus the size of header, for not showing scroll */
   height: calc(100vh - 64px);
   position: relative;
+}
+.landing::before {
+  content: "";
+  content: "";
+  background-color: var(--main-color);
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  left: 0;
+}
+.landing::after {
+  content: "";
+  background-color: var(--main-color);
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  right: 0;
+}
+@media (max-width: 767px) {
+  .landing::before , .landing::after{
+    display: none;
+  }
 }
 .landing .intro-text {
   /* to center the text in his landing parent I need add position relative to landing, without relative that means centered in his page */
@@ -271,6 +297,10 @@ body {
 }
 .services .services-content .image img {
   width: 260px;
+  transition: 0.3s ease-out;
+}
+.services .services-content .image:hover img {
+  transform: scale(1.08);
 }
 @media (max-width: 1199px) {
   .image-column {
@@ -292,6 +322,10 @@ body {
 }
 .portfolio .portfolio-content .card {
   background-color: white;
+  transition: 0.3s ease-out;
+}
+.portfolio .portfolio-content .card:hover {
+  transform: scale(1.08);
 }
 .portfolio .portfolio-content .card img {
   max-width: 100%;
@@ -361,6 +395,10 @@ body {
 }
 .about .about-content .image img {
   max-width: 100%;
+  transition: 0.3s ease-out;
+}
+.about .about-content .image:hover img {
+  transform: scale(1.08);
 }
 .about .about-content .text {
   flex-basis: calc(100% - 500px);
@@ -415,11 +453,13 @@ body {
 .contact .info .social i {
   margin-left: 10px;
   color: var(--second-color);
+  transition: 0.3s ease-in-out;
 }
 .contact .info .social i:hover {
   transition: 0.3s;
   transform: translate(0%, -20%);
   color: var(--main-color);
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .contact .info .link,
